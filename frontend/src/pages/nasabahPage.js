@@ -573,7 +573,9 @@ export function bindNasabahEvents() {
     const input = document.getElementById('tarik-jumlah');
     if (input) {
       input.focus();
-      input.setSelectionRange(input.value.length, input.value.length);
+      if (input.type !== 'number' && input.setSelectionRange) {
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
     }
   });
 
