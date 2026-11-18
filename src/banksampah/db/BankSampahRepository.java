@@ -232,6 +232,47 @@ public class BankSampahRepository {
         }
     }
 
+    public void savePetugas(Petugas petugas) throws SQLException {
+        String sql = "INSERT INTO pengguna (id_pengguna, nama, email, password, no_hp, role, id_petugas, wilayah_tugas) "
+                + "VALUES (?, ?, ?, ?, ?, 'PETUGAS', ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, petugas.getIdPengguna());
+            ps.setString(2, petugas.getNama());
+            ps.setString(3, petugas.getEmail());
+            ps.setString(4, petugas.getPassword());
+            ps.setString(5, petugas.getNoHp());
+            ps.setString(6, petugas.getIdPetugas());
+            ps.setString(7, petugas.getWilayahTugas());
+            ps.executeUpdate();
+        }
+    }
+
+    public void saveAdmin(Admin admin) throws SQLException {
+        String sql = "INSERT INTO pengguna (id_pengguna, nama, email, password, no_hp, role, tingkat_akses) "
+                + "VALUES (?, ?, ?, ?, ?, 'ADMIN', ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, admin.getIdPengguna());
+            ps.setString(2, admin.getNama());
+            ps.setString(3, admin.getEmail());
+            ps.setString(4, admin.getPassword());
+            ps.setString(5, admin.getNoHp());
+            ps.setString(6, admin.getLevelAkses());
+            ps.executeUpdate();
+        }
+    }
+
+    public void updateNamaPengguna(Pengguna pengguna) throws SQLException {
+        String sql = "UPDATE pengguna SET nama = ? WHERE id_pengguna = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, pengguna.getNama());
+            ps.setString(2, pengguna.getIdPengguna());
+            ps.executeUpdate();
+        }
+    }
+
     public void updatePassword(Pengguna pengguna) throws SQLException {
         String sql = "UPDATE pengguna SET password = ? WHERE id_pengguna = ?";
         try (Connection conn = DatabaseConnection.getConnection();
