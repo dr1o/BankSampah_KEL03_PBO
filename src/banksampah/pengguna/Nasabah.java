@@ -26,10 +26,15 @@ public class Nasabah extends Pengguna {
     private final List<Setoran> riwayatSetoran = new ArrayList<>();
 
     public Nasabah(String idPengguna, String nama, String email, String password, String noHp, String alamat) {
+        this(idPengguna, nama, email, password, noHp, alamat, new Date(), new Dompet("DMP-" + idPengguna));
+    }
+
+    public Nasabah(String idPengguna, String nama, String email, String password, String noHp,
+                   String alamat, Date tanggalDaftar, Dompet dompet) {
         super(idPengguna, nama, email, password, noHp);
         this.alamat = Objects.requireNonNull(alamat, "alamat tidak boleh null");
-        this.tanggalDaftar = new Date();
-        this.dompet = new Dompet("DMP-" + idPengguna);
+        this.tanggalDaftar = Objects.requireNonNull(tanggalDaftar, "tanggalDaftar tidak boleh null");
+        this.dompet = Objects.requireNonNull(dompet, "dompet tidak boleh null");
     }
 
     // ---- Method (sesuai diagram) ----
@@ -94,6 +99,20 @@ public class Nasabah extends Pengguna {
     /** Daftar setoran yang pernah diajukan nasabah ini (hanya baca). */
     public List<Setoran> lihatRiwayat() {
         return Collections.unmodifiableList(new ArrayList<>(riwayatSetoran));
+    }
+
+    /** Menambahkan riwayat setoran saat dimuat dari database tanpa mencetak log transaksi baru. */
+    public void muatRiwayatSetoran(Setoran setoran) {
+        Objects.requireNonNull(setoran, "setoran tidak boleh null");
+        riwayatSetoran.add(setoran);
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public Date getTanggalDaftar() {
+        return tanggalDaftar;
     }
 
     public Dompet getDompet() {

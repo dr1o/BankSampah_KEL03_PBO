@@ -16,9 +16,16 @@ public class Dompet {
     private int totalPoin;
 
     public Dompet(String idDompet) {
+        this(idDompet, 0, 0);
+    }
+
+    public Dompet(String idDompet, double saldoRupiah, int totalPoin) {
+        if (saldoRupiah < 0 || totalPoin < 0) {
+            throw new IllegalArgumentException("Saldo dan poin tidak boleh negatif.");
+        }
         this.idDompet = Objects.requireNonNull(idDompet, "idDompet tidak boleh null");
-        this.saldoRupiah = 0;
-        this.totalPoin = 0;
+        this.saldoRupiah = saldoRupiah;
+        this.totalPoin = totalPoin;
     }
 
     // ---- Method (sesuai diagram) ----
@@ -53,6 +60,10 @@ public class Dompet {
         }
         totalPoin -= poin;
         return true;
+    }
+
+    public String getIdDompet() {
+        return idDompet;
     }
 
     public double getSaldoRupiah() {

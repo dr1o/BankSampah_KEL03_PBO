@@ -16,6 +16,14 @@ public class Kertas extends Sampah {
         this.kering = kering;
     }
 
+    public String getJenisKertas() {
+        return jenisKertas;
+    }
+
+    public boolean isKering() {
+        return kering;
+    }
+
     // ---- Method (sesuai diagram) ----
     @Override
     public double hitungNilai(double berat) {

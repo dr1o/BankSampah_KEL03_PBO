@@ -168,6 +168,10 @@ public class Admin extends Pengguna {
         }
     }
 
+    public String getLevelAkses() {
+        return levelAkses;
+    }
+
     @Override
     public void tampilkanMenu() {
         System.out.println("=== Menu Admin: " + getNama() + " (akses " + levelAkses + ") ===");

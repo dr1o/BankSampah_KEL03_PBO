@@ -37,12 +37,21 @@ public class Setoran {
     private final Dompet dompet;
 
     public Setoran(String idSetoran, Dompet dompet) {
+        this(idSetoran, dompet, new Date(), DIAJUKAN, 0, 0, null);
+    }
+
+    /** Constructor untuk memuat ulang data setoran beserta detailnya dari database. */
+    public Setoran(String idSetoran, Dompet dompet, Date tanggalSetor, String status,
+                   double totalNilai, int totalPoin, List<DetailSetoran> details) {
         this.idSetoran = Objects.requireNonNull(idSetoran, "idSetoran tidak boleh null");
         this.dompet = Objects.requireNonNull(dompet, "dompet tidak boleh null");
-        this.tanggalSetor = new Date();
-        this.status = DIAJUKAN;
-        this.totalNilai = 0;
-        this.totalPoin = 0;
+        this.tanggalSetor = Objects.requireNonNull(tanggalSetor, "tanggalSetor tidak boleh null");
+        this.status = Objects.requireNonNull(status, "status tidak boleh null");
+        this.totalNilai = totalNilai;
+        this.totalPoin = totalPoin;
+        if (details != null) {
+            this.daftarDetail.addAll(details);
+        }
     }
 
     // ---- Method (sesuai diagram) ----
@@ -103,6 +112,30 @@ public class Setoran {
             throw new IllegalStateException("Setoran yang sudah SELESAI tidak dapat dibatalkan.");
         }
         status = DITOLAK;
+    }
+
+    public String getIdSetoran() {
+        return idSetoran;
+    }
+
+    public Date getTanggalSetor() {
+        return tanggalSetor;
+    }
+
+    public double getTotalNilai() {
+        return totalNilai;
+    }
+
+    public int getTotalPoin() {
+        return totalPoin;
+    }
+
+    public List<DetailSetoran> getDaftarDetail() {
+        return java.util.Collections.unmodifiableList(daftarDetail);
+    }
+
+    public Dompet getDompet() {
+        return dompet;
     }
 
     public String getStatus() {

@@ -28,11 +28,29 @@ public class DetailSetoran {
         this.subtotal = sampah.hitungNilai(berat); // harga dikunci pada saat setoran diajukan
     }
 
+    /** Constructor untuk memuat ulang riwayat detail dari database dengan subtotal terkunci. */
+    public DetailSetoran(Sampah sampah, double berat, double subtotal) {
+        if (berat <= 0 || subtotal < 0) {
+            throw new IllegalArgumentException("Berat harus > 0 dan subtotal tidak negatif.");
+        }
+        this.sampah = Objects.requireNonNull(sampah, "sampah tidak boleh null");
+        this.berat = berat;
+        this.subtotal = subtotal;
+    }
+
     // ---- Method (sesuai diagram) ----
 
     public double hitungSubtotal() {
         subtotal = sampah.hitungNilai(berat);
         return subtotal;
+    }
+
+    public double getBerat() {
+        return berat;
+    }
+
+    public Sampah getSampah() {
+        return sampah;
     }
 
     public double getSubtotal() {

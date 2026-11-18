@@ -55,6 +55,24 @@ public class Petugas extends Pengguna {
         return berhasil;
     }
 
+    /** Menambahkan setoran terverifikasi saat dimuat dari database. */
+    public void muatSetoranTerverifikasi(Setoran setoran) {
+        Objects.requireNonNull(setoran, "setoran tidak boleh null");
+        daftarSetoran.add(setoran);
+    }
+
+    public String getIdPetugas() {
+        return idPetugas;
+    }
+
+    public String getWilayahTugas() {
+        return wilayahTugas;
+    }
+
+    public List<Setoran> getDaftarSetoran() {
+        return java.util.Collections.unmodifiableList(daftarSetoran);
+    }
+
     @Override
     public void tampilkanMenu() {
         System.out.println("=== Menu Petugas: " + getNama() + " (" + wilayahTugas + ") ===");

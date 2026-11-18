@@ -19,6 +19,14 @@ public class Logam extends Sampah {
         this.kadarKemurnian = kadarKemurnian;
     }
 
+    public String getJenisLogam() {
+        return jenisLogam;
+    }
+
+    public double getKadarKemurnian() {
+        return kadarKemurnian;
+    }
+
     // ---- Method (sesuai diagram) ----
     @Override
     public double hitungNilai(double berat) {

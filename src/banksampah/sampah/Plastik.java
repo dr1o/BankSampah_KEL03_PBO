@@ -16,6 +16,14 @@ public class Plastik extends Sampah {
         this.bersih = bersih;
     }
 
+    public String getJenisPlastik() {
+        return jenisPlastik;
+    }
+
+    public boolean isBersih() {
+        return bersih;
+    }
+
     // ---- Method (sesuai diagram) ----
     @Override
     public double hitungNilai(double berat) {

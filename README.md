@@ -96,3 +96,22 @@ Dua field `Admin` berikut dibutuhkan oleh method di diagram, tetapi relasinya be
    menghitung total, bukan memperbarui berat hasil timbangan.
 4. **Relasi Admin ke Pengguna dan Setoran belum digambar** (lihat bagian di atas).
 5. **`lihatRiwayat()` hanya mencakup setoran**, karena penarikan dan penukaran poin tidak punya kelas sendiri.
+
+## Versi GUI Desktop + Database Neon PostgreSQL
+
+Selain versi CLI (`banksampah.Main`), tersedia antarmuka desktop modern (Java Swing + FlatLaf) yang terhubung ke Neon PostgreSQL melalui JDBC murni tanpa mengubah aturan bisnis pada 15 kelas diagram:
+
+- `banksampah.db`: `DatabaseConnection` (pembaca `.env` `DATABASE_URL`) dan `BankSampahRepository` (DAO yang mengubah baris SQL menjadi instance objek OOP `Plastik`, `Kertas`, `Logam`, `Nasabah`, `Petugas`, `Admin`, `Setoran`, `Dompet`, `Hadiah`).
+- `banksampah.ui`: `GuiMain`, `LoginFrame`, `DashboardFrame`, `NasabahPanel`, `PetugasPanel`, `AdminPanel`, `Theme`.
+- Library di folder `lib/`: `postgresql.jar` dan `flatlaf.jar`.
+
+### Cara Menjalankan GUI
+
+1. Pastikan file `.env` berisi `DATABASE_URL` Neon PostgreSQL (lihat `.env.example`) dan `schema.sql` sudah dijalankan di Neon SQL Editor.
+2. Jalankan langsung `run-gui.bat` (Windows), atau kompilasi dan jalankan secara manual:
+
+```
+javac -encoding UTF-8 -Xlint:all -cp "lib/*" -d out src/banksampah/*.java src/banksampah/pengguna/*.java src/banksampah/sampah/*.java src/banksampah/setoran/*.java src/banksampah/keuangan/*.java src/banksampah/hadiah/*.java src/banksampah/db/*.java src/banksampah/ui/*.java
+java -cp "out;lib/*" banksampah.ui.GuiMain
+```
+

@@ -34,6 +34,22 @@ public abstract class Pengguna {
         System.out.println(nama + " telah logout.");
     }
 
+    public String getIdPengguna() {
+        return idPengguna;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getNoHp() {
+        return noHp;
+    }
+
     public String getNama() {
         return nama;
     }

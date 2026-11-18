@@ -25,6 +25,10 @@ public abstract class Sampah {
 
     // ---- Method (sesuai diagram) ----
 
+    public String getIdSampah() {
+        return idSampah;
+    }
+
     public String getNamaSampah() {
         return namaSampah;
     }

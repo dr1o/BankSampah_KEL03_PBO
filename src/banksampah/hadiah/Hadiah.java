@@ -38,6 +38,25 @@ public class Hadiah {
         stok--;
     }
 
+    public void tambahStok(int tambahan) {
+        if (tambahan <= 0) {
+            throw new IllegalArgumentException("Tambahan stok harus lebih dari 0.");
+        }
+        stok += tambahan;
+    }
+
+    public String getIdHadiah() {
+        return idHadiah;
+    }
+
+    public String getNamaHadiah() {
+        return namaHadiah;
+    }
+
+    public int getStok() {
+        return stok;
+    }
+
     public int getPoinDibutuhkan() {
         return poinDibutuhkan;
     }
