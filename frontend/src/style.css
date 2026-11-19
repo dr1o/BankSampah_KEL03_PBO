@@ -1159,3 +1159,564 @@ tr:hover td {
   border-top: 1px dashed var(--border-warm);
   margin: 0.45rem 0;
 }
+
+/* ============================================================
+   Lapisan editorial
+   Gaya: tipografi besar, garis rambut, permukaan datar.
+   Palet tidak diubah, semua warna tetap memakai variabel tim.
+   ============================================================ */
+
+:root {
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --shadow-sm: none;
+  --shadow-md: none;
+  --shadow-lg: none;
+}
+
+body {
+  background: var(--surface-ivory);
+}
+
+/* --- Navigasi atas --- */
+.top-navbar {
+  background: var(--brown-900);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: none;
+  padding: 1rem clamp(1.25rem, 3.5vw, 2.5rem);
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: -0.015em;
+}
+
+.brand-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.brand-logo { border-radius: 2px; }
+
+.quick-switcher {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.quick-role-btn {
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.5rem 0.85rem;
+}
+.quick-role-btn:last-child { border-right: 0; }
+.quick-role-btn.active {
+  background: var(--surface-ivory);
+  color: var(--brown-900);
+}
+
+.user-chip, .role-badge, .db-pill { border-radius: 2px; }
+
+/* --- Tipografi --- */
+.auth-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.auth-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.form-label,
+.wallet-stat-label,
+.kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* --- Halaman masuk --- */
+.auth-showcase {
+  background: var(--brown-900);
+  padding: clamp(2rem, 4vw, 3.5rem);
+}
+
+.auth-card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-warm);
+  border-radius: 2px;
+  box-shadow: none;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.demo-role-card {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  padding: 0.9rem 1rem;
+}
+.demo-role-card:hover {
+  border-color: var(--surface-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.auth-tabs {
+  background: transparent;
+  border-bottom: 1px solid var(--border-warm);
+  border-radius: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.auth-tab-btn {
+  border-radius: 0;
+  background: transparent;
+  padding: 0.7rem 0;
+  border-bottom: 2px solid transparent;
+}
+.auth-tab-btn.active {
+  background: transparent;
+  color: var(--text-primary);
+  border-bottom-color: var(--brown-900);
+  box-shadow: none;
+}
+
+/* --- Tombol --- */
+.btn {
+  border-radius: 2px;
+  border: 1px solid transparent;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary {
+  background: var(--brown-900);
+  border-color: var(--brown-900);
+  color: var(--surface-white);
+}
+.btn-primary:hover:not(:disabled) { background: var(--brown-800); }
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-cream);
+  border-color: var(--brown-700);
+}
+
+.btn-danger {
+  border-radius: 2px;
+}
+
+/* --- Formulir --- */
+.form-input,
+.form-select {
+  border: 1px solid var(--border-strong);
+  border-radius: 2px;
+  background: var(--surface-white);
+  min-height: 46px;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: 2px solid rgba(62, 39, 35, 0.28);
+  outline-offset: 1px;
+  box-shadow: none;
+  border-color: var(--brown-800);
+}
+
+/* --- Permukaan dan kartu --- */
+.card,
+.kpi-card,
+.sampah-item-card,
+.pipeline-stage-card,
+.table-wrap,
+.nasabah-nav-pills {
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.card { padding: clamp(1.1rem, 2vw, 1.6rem); }
+
+.card-header {
+  border-bottom: 1px solid var(--border-warm);
+  padding-bottom: 0.85rem;
+  margin-bottom: 1.1rem;
+}
+
+.kpi-card {
+  border-left-width: 2px;
+  padding: 1rem 1.15rem;
+}
+
+.sampah-item-card {
+  border-width: 1px;
+  padding: 1.1rem;
+}
+.sampah-item-card:hover { transform: none; }
+
+.pipeline-stage-card { border-width: 1px; }
+
+/* --- Pita dompet --- */
+.nasabah-wallet-hero {
+  background: var(--brown-900);
+  border-radius: 2px;
+  box-shadow: none;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.wallet-stat-box {
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 2px;
+  background: transparent;
+}
+
+/* --- Navigasi dalam halaman --- */
+.nasabah-nav-pills {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-warm);
+  border-radius: 0;
+  padding: 0;
+  gap: 1.6rem;
+  box-shadow: none;
+}
+
+.nasabah-pill-btn {
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  padding: 0.8rem 0;
+}
+.nasabah-pill-btn:hover { background: transparent; color: var(--brown-900); }
+.nasabah-pill-btn.active {
+  background: transparent;
+  color: var(--text-primary);
+  border-bottom-color: var(--brown-900);
+  box-shadow: none;
+}
+
+/* --- Panel admin --- */
+.admin-sidebar {
+  background: var(--brown-900);
+  border-radius: 0;
+}
+
+.admin-nav-btn {
+  border-radius: 0;
+  border-left: 2px solid transparent;
+  background: transparent;
+}
+.admin-nav-btn:hover { background: rgba(255, 255, 255, 0.07); }
+.admin-nav-btn.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--surface-white);
+}
+
+/* --- Label status --- */
+.badge {
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.5rem;
+}
+
+/* --- Tabel --- */
+.table-wrap {
+  border: 1px solid var(--border-warm);
+}
+
+.table-wrap table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.table-wrap table td {
+  border-bottom: 1px solid var(--border-warm);
+}
+
+/* --- Ritme halaman --- */
+.nasabah-container,
+.petugas-container {
+  max-width: 1360px;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.admin-shell { gap: 0; }
+.admin-main { padding: clamp(1.25rem, 2.5vw, 2rem); }
+
+@media (max-width: 640px) {
+  .nasabah-container,
+  .petugas-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* --- Koreksi kontras di pita dompet (latar cokelat tua) --- */
+.nasabah-wallet-hero .wallet-stat-label,
+.nasabah-wallet-hero .wallet-stat-label span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.nasabah-wallet-hero .wallet-stat-value {
+  color: var(--surface-white);
+}
+
+.nasabah-wallet-hero .btn-primary {
+  background: var(--surface-white);
+  border-color: var(--surface-white);
+  color: var(--brown-900);
+}
+.nasabah-wallet-hero .btn-primary:hover:not(:disabled) {
+  background: var(--surface-cream);
+  border-color: var(--surface-cream);
+}
+
+.nasabah-wallet-hero .btn-secondary {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--surface-white);
+}
+.nasabah-wallet-hero .btn-secondary:hover:not(:disabled) {
+  background: var(--surface-white);
+  border-color: var(--surface-white);
+  color: var(--brown-900);
+}
+
+.nasabah-wallet-hero .badge-caramel {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: var(--surface-white);
+}
+
+/* --- Banner petugas: izinkan baris label membungkus --- */
+.petugas-station-banner {
+  align-items: flex-start;
+  border-width: 1px;
+}
+
+.petugas-station-banner > div {
+  min-width: 0;
+}
+
+.petugas-station-banner div[style*="display:flex"] {
+  flex-wrap: wrap;
+}
+
+/* Banner petugas ditumpuk: identitas di atas, total di kanan bawah,
+   supaya baris panjang tidak pernah terpotong. */
+.petugas-station-banner {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.petugas-station-banner > div:last-child {
+  text-align: right;
+}
+
+.petugas-station-banner .mono {
+  line-height: 1.25;
+}
+
+/* --- Navigasi di layar sempit --- */
+@media (max-width: 900px) {
+  .top-navbar {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .brand-group {
+    flex: 1 1 100%;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .quick-switcher {
+    order: 2;
+    flex: 1 1 100%;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  .quick-switcher-label {
+    display: none;
+  }
+
+  .quick-role-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 0.78rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  .user-chip {
+    order: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  .user-chip { order: 1; flex: 0 0 auto; }
+  #btn-logout { order: 2; flex: 0 0 auto; }
+  .quick-switcher { order: 3; }
+
+  .quick-role-btn {
+    font-size: 0.72rem;
+    padding: 0.42rem 0.55rem;
+  }
+
+  .user-chip-name { max-width: 8rem; overflow: hidden; text-overflow: ellipsis; }
+}
+
+@media (max-width: 900px) {
+  .demo-role-cards,
+  .erd-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-showcase {
+    padding: 2rem 1.25rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ===================================================================
+ * LAPISAN 3 — FOTOGRAFI
+ * Foto sudah di-duotone ke palet tim (brown-950 ke brown-100) di
+ * public/foto/, jadi CSS di sini tidak menambah nilai warna baru:
+ * hanya posisi, ukuran, dan opacity.
+ * =================================================================== */
+
+/* --- Panel kiri halaman masuk: foto gedung bank sampah --- */
+.auth-showcase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.auth-showcase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/foto/hero-masuk.jpg");
+  background-size: cover;
+  background-position: center 32%;
+  opacity: 0.45;
+}
+
+.auth-showcase > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Pita dompet nasabah: tekstur botol PET --- */
+.nasabah-wallet-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.nasabah-wallet-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/foto/hero-dompet.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+}
+
+.nasabah-wallet-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Katalog sampah: satu foto per kartu --- */
+.setor-split-grid .sampah-item-card {
+  position: relative;
+  overflow: hidden;
+  padding-top: 6.1rem;
+}
+
+.setor-split-grid .sampah-item-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5.3rem;
+  background-image: url("/foto/kartu-pet.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border-warm);
+  opacity: 0.92;
+  transition: opacity 0.2s ease;
+}
+
+.setor-split-grid .sampah-item-card:hover::before {
+  opacity: 1;
+}
+
+.setor-split-grid .sampah-item-card:nth-child(1)::before { background-image: url("/foto/kartu-pet.jpg"); }
+.setor-split-grid .sampah-item-card:nth-child(2)::before { background-image: url("/foto/kartu-kresek.jpg"); }
+.setor-split-grid .sampah-item-card:nth-child(3)::before { background-image: url("/foto/kartu-kardus.jpg"); }
+.setor-split-grid .sampah-item-card:nth-child(4)::before { background-image: url("/foto/kartu-koran.jpg"); }
+.setor-split-grid .sampah-item-card:nth-child(5)::before { background-image: url("/foto/kartu-logam.jpg"); }
+
+@media (max-width: 720px) {
+  .setor-split-grid .sampah-item-card {
+    padding-top: 8.4rem;
+  }
+  .setor-split-grid .sampah-item-card::before {
+    height: 7.6rem;
+  }
+  .auth-showcase::before {
+    opacity: 0.3;
+  }
+}
